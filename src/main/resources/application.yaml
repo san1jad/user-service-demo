@@ -15,7 +15,7 @@ spring:
     username: root
     password: root
   config:
-    import: configserver:http://localhost:9296
+    import: optional:configserver:http://localhost:9296
 
 
 

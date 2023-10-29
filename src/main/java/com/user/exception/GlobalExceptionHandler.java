@@ -30,7 +30,7 @@ public class GlobalExceptionHandler {
             // errorMap.put(error.getField(), error.getDefaultMessage());
             collect.add(error.getDefaultMessage());
         });
-        HandledApiErrors apiError = new HandledApiErrors(ErrorCode.INFO_ERROR.toString(), collect);
+        HandledApiErrors apiError = new HandledApiErrors(ErrorCode.USER_ERROR.toString(), collect);
         return new ResponseEntity<>(apiError, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
@@ -39,7 +39,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<HandledApiErrors> handleNotFoundException(HandleNotFoundException ex) {
         HandledApiErrors apiError = null;
         String errMsg = (ex.getMessage() != null) ? ex.getMessage() : HttpStatus.NOT_FOUND.getReasonPhrase();
-        apiError = new HandledApiErrors(ErrorCode.INFO_ERROR.toString(), Arrays.asList(errMsg));
+        apiError = new HandledApiErrors(ErrorCode.USER_ERROR.toString(), Arrays.asList(errMsg));
         return new ResponseEntity<>(apiError, new HttpHeaders(), HttpStatus.NOT_FOUND);
 
     }
