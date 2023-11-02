@@ -11,11 +11,11 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
   datasource:
-    url: jdbc:mysql://localhost:3306/dev
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/dev
     username: root
     password: root
   config:
-    import: optional:configserver:http://localhost:9296
+    import: configserver:http://${CONFIG_SERVER_URL:localhost}:9296
 
 
 
